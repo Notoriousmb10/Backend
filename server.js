@@ -8,7 +8,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
+
+app.use(cors({
+  origin: 'https://frontend-chi-pearl.vercel.app/',  
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+  credentials: true 
+}));
+
+
 mongoose
   .connect("mongodb://localhost:27017/simcards", {
     useNewUrlParser: true,
